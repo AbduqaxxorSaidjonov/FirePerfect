@@ -1,45 +1,58 @@
-//
-//  HomeScreen.swift
-//  FirePerfect
-//
-//  Created by Abduqaxxor on 24/4/22.
-//
 
 import SwiftUI
 
 struct HomeScreen: View {
     
     @EnvironmentObject var session: SessionStore
+    @ObservedObject var database = RealtimeStore()
+    @State var isLoading = false
     
     func doSignOut(){
+        isLoading = true
         if SessionStore().signOut(){
+            isLoading = false
             session.listen()
+        }
+    }
+    
+    func apiContacts(){
+        isLoading = true
+        database.loadContacts{
+           isLoading = false
         }
     }
     
     var body: some View {
         NavigationView{
-            VStack{
-                if let email = session.session?.email{
-                Text("Welcome " + email)
-                    .foregroundColor(.red)
+            ZStack{
+                List{
+                    ForEach(database.items , id: \.self){item in
+                        ContactCell(contact: item)
+                        
+                    }
+                }.listStyle(PlainListStyle())
+                if isLoading{
+                    ProgressView()
                 }
             }
             .navigationBarItems(trailing: HStack{
-                Button(action: {
-                    
-                }, label: {
+                NavigationLink(destination:
+                                AddContactScreen()
+                , label: {
                     Image(systemName: "plus.circle")
-                        .foregroundColor(.red)
+                        .foregroundColor(.black)
                 })
                 Button(action: {
                     doSignOut()
                 }, label: {
                     Image(systemName: "arrow.right.square")
-                        .foregroundColor(.red)
+                        .foregroundColor(.black)
                 })
             })
-            .navigationBarTitle("Posts",displayMode: .inline)
+            .navigationBarTitle("Contacts",displayMode: .inline)
+            
+        }.onAppear{
+            apiContacts()
         }
     }
 }

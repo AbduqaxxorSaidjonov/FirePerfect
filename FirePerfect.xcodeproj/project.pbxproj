@@ -10,6 +10,10 @@
 		48F5A60B08CF8BB0884F2CC6 /* Pods_FirePerfectTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CA96D003CB8466671E67235C /* Pods_FirePerfectTests.framework */; };
 		760CF966281545010049C320 /* SessionStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 760CF965281545010049C320 /* SessionStore.swift */; };
 		760CF968281545910049C320 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 760CF967281545910049C320 /* User.swift */; };
+		76328F3C282265120040BE62 /* RealtimeStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 76328F3B282265120040BE62 /* RealtimeStore.swift */; };
+		76328F3E28227BD70040BE62 /* Contact.swift in Sources */ = {isa = PBXBuildFile; fileRef = 76328F3D28227BD70040BE62 /* Contact.swift */; };
+		76328F40282294A30040BE62 /* AddContactScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 76328F3F282294A30040BE62 /* AddContactScreen.swift */; };
+		76328F43282391CE0040BE62 /* ContactCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 76328F42282391CE0040BE62 /* ContactCell.swift */; };
 		76C9EC942814990E00F0E1EC /* FirePerfectApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 76C9EC932814990E00F0E1EC /* FirePerfectApp.swift */; };
 		76C9EC982814990F00F0E1EC /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 76C9EC972814990F00F0E1EC /* Assets.xcassets */; };
 		76C9EC9B2814990F00F0E1EC /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 76C9EC9A2814990F00F0E1EC /* Preview Assets.xcassets */; };
@@ -48,6 +52,10 @@
 		56538D310C5817F4526B5956 /* Pods-FirePerfectTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-FirePerfectTests.release.xcconfig"; path = "Target Support Files/Pods-FirePerfectTests/Pods-FirePerfectTests.release.xcconfig"; sourceTree = "<group>"; };
 		760CF965281545010049C320 /* SessionStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SessionStore.swift; sourceTree = "<group>"; };
 		760CF967281545910049C320 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
+		76328F3B282265120040BE62 /* RealtimeStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RealtimeStore.swift; sourceTree = "<group>"; };
+		76328F3D28227BD70040BE62 /* Contact.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Contact.swift; sourceTree = "<group>"; };
+		76328F3F282294A30040BE62 /* AddContactScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddContactScreen.swift; sourceTree = "<group>"; };
+		76328F42282391CE0040BE62 /* ContactCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContactCell.swift; sourceTree = "<group>"; };
 		76C9EC902814990E00F0E1EC /* FirePerfect.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = FirePerfect.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		76C9EC932814990E00F0E1EC /* FirePerfectApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirePerfectApp.swift; sourceTree = "<group>"; };
 		76C9EC972814990F00F0E1EC /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -130,8 +138,25 @@
 			children = (
 				760CF965281545010049C320 /* SessionStore.swift */,
 				760CF967281545910049C320 /* User.swift */,
+				76328F3D28227BD70040BE62 /* Contact.swift */,
 			);
 			path = methods;
+			sourceTree = "<group>";
+		};
+		76328F3A282264F70040BE62 /* network */ = {
+			isa = PBXGroup;
+			children = (
+				76328F3B282265120040BE62 /* RealtimeStore.swift */,
+			);
+			path = network;
+			sourceTree = "<group>";
+		};
+		76328F41282391BE0040BE62 /* cell */ = {
+			isa = PBXGroup;
+			children = (
+				76328F42282391CE0040BE62 /* ContactCell.swift */,
+			);
+			path = cell;
 			sourceTree = "<group>";
 		};
 		76C9EC872814990E00F0E1EC = {
@@ -159,6 +184,8 @@
 		76C9EC922814990E00F0E1EC /* FirePerfect */ = {
 			isa = PBXGroup;
 			children = (
+				76328F41282391BE0040BE62 /* cell */,
+				76328F3A282264F70040BE62 /* network */,
 				760CF964281544E40049C320 /* methods */,
 				76C9ECC32814993700F0E1EC /* screens */,
 				76C9ECC22814991C00F0E1EC /* apputils */,
@@ -211,6 +238,7 @@
 				76C9ECC62814996E00F0E1EC /* SignUpScreen.swift */,
 				76C9ECC82814998200F0E1EC /* HomeScreen.swift */,
 				76C9ECCA281499AE00F0E1EC /* StarterScreen.swift */,
+				76328F3F282294A30040BE62 /* AddContactScreen.swift */,
 			);
 			path = screens;
 			sourceTree = "<group>";
@@ -455,9 +483,13 @@
 			buildActionMask = 2147483647;
 			files = (
 				76C9ECC72814996E00F0E1EC /* SignUpScreen.swift in Sources */,
+				76328F3E28227BD70040BE62 /* Contact.swift in Sources */,
+				76328F43282391CE0040BE62 /* ContactCell.swift in Sources */,
 				76C9EC9D2814990F00F0E1EC /* Persistence.swift in Sources */,
 				76C9ECCB281499AE00F0E1EC /* StarterScreen.swift in Sources */,
 				76C9ECC92814998200F0E1EC /* HomeScreen.swift in Sources */,
+				76328F40282294A30040BE62 /* AddContactScreen.swift in Sources */,
+				76328F3C282265120040BE62 /* RealtimeStore.swift in Sources */,
 				76C9ECC52814995B00F0E1EC /* SignInScreen.swift in Sources */,
 				760CF968281545910049C320 /* User.swift in Sources */,
 				76C9EC942814990E00F0E1EC /* FirePerfectApp.swift in Sources */,

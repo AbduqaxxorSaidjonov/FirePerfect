@@ -58,6 +58,7 @@
 		76328F3D28227BD70040BE62 /* Contact.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Contact.swift; sourceTree = "<group>"; };
 		76328F3F282294A30040BE62 /* AddContactScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddContactScreen.swift; sourceTree = "<group>"; };
 		76328F42282391CE0040BE62 /* ContactCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContactCell.swift; sourceTree = "<group>"; };
+		76913D9E28268A780018E361 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
 		76C4093D282611E70001DC1E /* StorageStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StorageStore.swift; sourceTree = "<group>"; };
 		76C40940282642110001DC1E /* ImagePicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImagePicker.swift; sourceTree = "<group>"; };
 		76C9EC902814990E00F0E1EC /* FirePerfect.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = FirePerfect.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -204,6 +205,8 @@
 				76C9ECC32814993700F0E1EC /* screens */,
 				76C9ECC22814991C00F0E1EC /* apputils */,
 				76C9EC932814990E00F0E1EC /* FirePerfectApp.swift */,
+				76C9ECCC28153D6A00F0E1EC /* GoogleService-Info.plist */,
+				76913D9E28268A780018E361 /* Info.plist */,
 				76C9EC992814990F00F0E1EC /* Preview Content */,
 			);
 			path = FirePerfect;
@@ -238,7 +241,6 @@
 			isa = PBXGroup;
 			children = (
 				76C9EC9E2814990F00F0E1EC /* FirePerfect.xcdatamodeld */,
-				76C9ECCC28153D6A00F0E1EC /* GoogleService-Info.plist */,
 				76C9EC9C2814990F00F0E1EC /* Persistence.swift */,
 				76C9EC972814990F00F0E1EC /* Assets.xcassets */,
 			);
@@ -674,8 +676,7 @@
 				DEVELOPMENT_ASSET_PATHS = "\"FirePerfect/Preview Content\"";
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_KEY_NSCameraUsageDescription = "camera description.";
-				INFOPLIST_KEY_NSPhotoLibraryUsageDescription = "photos description.";
+				INFOPLIST_FILE = FirePerfect/Info.plist;
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
@@ -705,8 +706,7 @@
 				DEVELOPMENT_ASSET_PATHS = "\"FirePerfect/Preview Content\"";
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_KEY_NSCameraUsageDescription = "camera description.";
-				INFOPLIST_KEY_NSPhotoLibraryUsageDescription = "photos description.";
+				INFOPLIST_FILE = FirePerfect/Info.plist;
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;

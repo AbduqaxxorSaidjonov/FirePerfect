@@ -10,7 +10,7 @@ class RealtimeStore: ObservableObject{
     
     func storeContact(contact: Contact, completion: @escaping (_ success: Bool) -> ()){
         var success = true
-        let toBeContact = ["firstname": contact.firstname!, "lastname": contact.lastname! , "phone": contact.phone!]
+        let toBeContact = ["firstname": contact.firstname!, "lastname": contact.lastname! , "phone": contact.phone!, "imgUrl": contact.imgUrl!]
         
         ref.childByAutoId().setValue(toBeContact){(error, ref) -> Void in
             if error != nil{
@@ -29,7 +29,8 @@ class RealtimeStore: ObservableObject{
                     let firstname = value!["firstname"] as? String
                     let lastname = value!["lastname"] as? String
                     let phone = value!["phone"] as? String
-                    self.items.append(Contact(firstname: firstname, lastname: lastname, phone: phone))
+                    let imgUrl = value!["imgUrl"] as? String
+                    self.items.append(Contact(firstname: firstname, lastname: lastname, phone: phone,imgUrl: imgUrl))
                 }
             }
             completion()

@@ -10,15 +10,20 @@ import SwiftUI
 struct AddContactScreen: View {
     
     @ObservedObject var database = RealtimeStore()
+    @ObservedObject var storage = StorageStore()
     @Environment(\.presentationMode) var presentation
     @State var firstname: String = ""
     @State var lastname: String = ""
     @State var phone: String = ""
     @State var isLoading = false
     
-    func addNewContact(){
-        isLoading = true
-        let contact = Contact(firstname: firstname, lastname: lastname, phone: phone)
+    @State var defImage = UIImage(imageLiteralResourceName: "ic_picker")
+    @State var pickedImage: UIImage? = nil
+    @State var showImagePicker: Bool = false
+    
+    
+    func addNewContact(urlString: String){
+        let contact = Contact(firstname: firstname, lastname: lastname, phone: phone,imgUrl: urlString)
         database.storeContact(contact: contact, completion: { success in
             isLoading = false
             if success{
@@ -28,9 +33,28 @@ struct AddContactScreen: View {
         })
     }
     
+    func uploadImage(){
+        isLoading = true
+        storage.uploadImage(pickedImage!, completion: { downloadURL in
+            let urlString = downloadURL!.absoluteString
+            print(urlString)
+            addNewContact(urlString: urlString)
+        })
+    }
+    
     var body: some View {
         ZStack{
             VStack{
+                Button(action: {
+                    self.showImagePicker.toggle()
+                }, label: {
+                    Image(uiImage: pickedImage ?? defImage).resizable().frame(width: 100, height: 100).scaledToFit()
+                })
+                    .sheet(isPresented: $showImagePicker, onDismiss: {
+                        self.showImagePicker = false
+                    }, content: {
+                        ImagePicker(image: self.$pickedImage, isShown: self.$showImagePicker)
+                    })
                 TextField("Firstname",text: $firstname)
                     .padding(.leading)
                     .frame(height: 50)
@@ -47,7 +71,7 @@ struct AddContactScreen: View {
                     .background(.gray.opacity(0.2))
                     .cornerRadius(8)
                 Button(action: {
-                    addNewContact()
+                    uploadImage()
                 }, label: {
                     Text("Add").foregroundColor(.white)
                         .frame(maxWidth: .infinity)

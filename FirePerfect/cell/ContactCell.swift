@@ -6,12 +6,22 @@
 //
 
 import SwiftUI
+import SDWebImageSwiftUI
 
 struct ContactCell: View {
     
     var contact: Contact
     
     var body: some View {
+        HStack{
+            if contact.imgUrl != nil {
+                WebImage(url: URL(string: contact.imgUrl!))
+                    .resizable()
+                    .frame(width: 100, height: 100)
+            }
+            else{
+                Image("ic_picker").resizable().frame(width: 100, height: 100)
+            }
         VStack(alignment: .leading){
            HStack {
                Text(contact.firstname!.uppercased())
@@ -25,6 +35,7 @@ struct ContactCell: View {
                 .foregroundColor(.black)
         }
         .padding()
+    }
     }
 }
 
